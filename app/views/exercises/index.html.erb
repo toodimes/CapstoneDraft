@@ -1,0 +1,17 @@
+<h1>The index page for all the exercises</h1>
+<% @exercises.each do |exercise| %>
+  <p><a href=""><%= exercise.name %></a></p>
+  <%= form_tag "/program_preps", method: :post do %>
+    <input type="text" name="quantity" placeholder="Quantity">
+    <select name="user_id" id="">
+      <% UserProfile.where(trainer_profile_id:current_user.trainer_profile.id).each do |user| %>
+        <option value="<%= user.user.id %>"><%= user.name %></option>
+      <% end %>
+    </select>
+    <input hidden type="text" name="exercise_id" value="<%= exercise.id %>">
+    <input hidden type="text" name="trainer_profile_id" value="current_user.trainer_profile.id">
+    <input type="submit" value="Add to Program">
+  <% end %>
+  <img src="<%= exercise.exercise_images.first.url %>" alt="" class="media-object">
+
+<% end %>

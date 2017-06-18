@@ -1,0 +1,23 @@
+<h1>New Goal for <%= current_user.user_profile.name %>!</h1>
+<%= form_tag "/goals", method: :post do  %>
+  <input type="text" name="name" placeholder="Name">
+  <!-- <input type="text" name="gender" placeholder="gender"> -->
+  <input type="text" name="goal" placeholder="Details">
+  <input type="checkbox" name="add">
+  <input type="submit" value="Submit">
+<% end %>
+<a href="/goals">Finished Adding Goals</a>
+<div class="profile-info">
+  <%= image_tag "#{current_user.avatars.last.url}", class: "avatar-img"%>
+  <p>Name: <%= current_user.user_profile.name %></p>
+  <p>Gender: <%= current_user.user_profile.gender %></p>
+  <p>Trainer: <%= current_user.user_profile.trainer_profile.name %></p>
+  <p>Paid: <%= current_user.user_profile.paid ? 'Yes' : 'No' %></p>
+  <p>Has Equipment: <%= current_user.user_profile.paid ? 'Yes' : 'No' %></p>
+  <p>Goals:</p>
+  <ul>
+    <% current_user.user_profile.goals.all.each do |goal| %>
+      <li>Edit: <a href="/goals/<%= goal.id %>/edit"><%= goal.name %></a></li>
+    <% end %>
+  </ul>
+</div>

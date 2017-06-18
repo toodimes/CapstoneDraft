@@ -1,0 +1,223 @@
+<section id="land" class="parallax">
+  <div id="slide1" class="land parallax shown">
+    <div class="slide_description">
+        <h3>Welcome to No<span class="highlight">Rx</span>cuses</h3>
+        <h2>YOUR PERSONAL TRAINER</h2>
+        <% if current_user %>
+          <p><a href='<%= current_user.user_profile ? "/user_profiles/#{current_user.user_profile.id}" : "/trainer_profiles/#{current_user.trainer_profile.id}" %>' class="theme_btn">View Profile</a></p>
+        <% else %>
+          <p><a href="/users/sign_up" class="theme_btn">Sign Up</a></p>
+        <% end %>
+    </div>
+  </div>
+</section>
+<!-- END WELCOME IMAGE -->
+<section id="slide_tabs" class="dark_section bg_image">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="nav nav-tabs nav-justified main-tab">
+                    <li class="active">
+                        <a data-toggle="tab" class="slide1" href="#1">Our Trainers</a>
+                    </li>
+                    <li class="">
+                        <a data-toggle="tab" class="slide2" href="#2">Exercises</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="1" class="tab-pane fade active in">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <h3>Latest Trainers</h3>
+                                <div id="carousel-news-gym" class="carousel slide" data-ride="carousel">
+                                    <!-- Controls -->
+                                    <div class="carousel-controls">
+                                        <a class="" href="#carousel-news-gym" data-slide="prev">
+                                            <i class="arrow-icon-left-open-mini"></i>
+                                        </a>
+                                        <a class="" href="#carousel-news-gym" data-slide="next">
+                                            <i class="arrow-icon-right-open-mini"></i>
+                                        </a>
+                                    </div>
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner">
+                                        <% @trainers.each do |trainer| %>
+                                            <div class="item <%= 'active' if trainer == @trainers.first %>">
+                                                <div class="media">
+                                                    <a href="/trainer_profiles/<%= trainer.id %>" class="pull-left"><%= image_tag "#{trainer.user.avatars.last.url}", class: "media-object" %></a>
+                                                    <div class="media-body">
+                                                        <p><%= trainer.experience %></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        <% end %>
+                                        
+                                    </div>
+                                </div> <!-- eof carousel -->
+                            </div>
+                            <!-- STILL NEED TO DO TESTIMONIALS -->
+                            <div class="col-md-4 col-sm-6">
+                                <h3>Testimonials</h3>
+                                <div id="carousel-testimonials-gym" class="carousel slide" data-ride="carousel">
+                                    <!-- Controls -->
+                                    <div class="carousel-controls">
+                                        <a class="" href="#carousel-testimonials-gym" data-slide="prev">
+                                            <i class="arrow-icon-left-open-mini"></i>
+                                        </a>
+                                        <a class="" href="#carousel-testimonials-gym" data-slide="next">
+                                            <i class="arrow-icon-right-open-mini"></i>
+                                        </a>
+                                    </div>
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <div class="media">
+                                                <a class="pull-left" href="#">
+                                                    <img class="media-object" src="example/top-face3.jpg" alt="">
+                                                </a>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Your Name</h4>
+                                                    <p>
+                                                        Ut enim minim veniam norud exotation ullamco laboris nialiquid exea commodi consat.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="media">
+                                                <a class="pull-left" href="#">
+                                                    <img class="media-object" src="example/top-face4.jpg" alt="">
+                                                </a>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Media heading</h4>
+                                                    <p>
+                                                        Ut enim minim veniam norud exotation ullamco laboris nialiquid exea commodi consat.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="media">
+                                                <a class="pull-left" href="#">
+                                                    <img class="media-object" src="example/top-face1.jpg" alt="">
+                                                </a>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Media heading</h4>
+                                                    <p>
+                                                        Ut enim minim veniam norud exotation ullamco laboris nialiquid exea commodi consat.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- eof carousel -->
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <h3>Contact Info</h3>
+                                <p>
+                                    <i class="rt-icon-earth"></i> <strong>65 Santa Monica Blvd</strong>, LA, CA 97845, US
+                                </p>
+                                <p>
+                                    <i class="rt-icon-newspaper"></i> +91 544 567 8943
+                                </p>
+                                <p>
+                                    <i class="rt-icon-email2"></i> <a href="mailto:fitness@sportslife.com">fitness@sportslife.com</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div> <!-- #1 -->
+                    <div id="2" class="tab-pane fade">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h3>Latest Exercises</h3>
+                                <div id="carousel-news-outdoor" class="carousel slide" data-ride="carousel">
+                                    <!-- Controls -->
+                                    <div class="carousel-controls">
+                                        <a class="" href="#carousel-news-outdoor" data-slide="prev">
+                                            <i class="arrow-icon-left-open-mini"></i>
+                                        </a>
+                                        <a class="" href="#carousel-news-outdoor" data-slide="next">
+                                            <i class="arrow-icon-right-open-mini"></i>
+                                        </a>  
+                                    </div>
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner">
+                                        <% @exercises.each do |exercise| %>
+                                            <div class="item <%= 'active' if exercise == @exercises.first %>">
+                                                <div class="media">
+                                                    <!-- <a class="pull-right" href="#"> -->
+                                                        <%= image_tag "#{exercise.exercise_images.last.url}", style: "border-radius: 10px; max-width: 550px;", class: "pull-left" %>
+                                                    <!-- </a> -->
+                                                    <div class="media-body">
+                                                        <p><a href="/exercises/<%= exercise.id %>"><%= exercise.name %></a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <% end %>
+                                    </div>
+                                </div> <!-- eof carousel -->
+                            </div>
+                            <div class="col-sm-4">
+                                <h3>Testimonials</h3>
+                                <div id="carousel-testimonials-outdoor" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-controls">
+                                         <!-- Controls -->
+                                        <a class="" href="#carousel-testimonials-outdoor" data-slide="prev">
+                                            <i class="arrow-icon-left-open-mini"></i>
+                                        </a>
+                                        <a class="" href="#carousel-testimonials-outdoor" data-slide="next">
+                                            <i class="arrow-icon-right-open-mini"></i>
+                                        </a>  
+                                    </div>
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <div class="media">
+                                                <a class="pull-left" href="#">
+                                                    <img class="media-object" src="example/top-face4.jpg" alt="">
+                                                </a>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Media heading</h4>
+                                                    <p>
+                                                        Ut enim minim veniam norud exotation ullamco laboris nialiquid exea commodi consat.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="media">
+                                                <a class="pull-left" href="#">
+                                                    <img class="media-object" src="example/top-face5.jpg" alt="">
+                                                </a>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Media heading</h4>
+                                                    <p>
+                                                        Ut enim minim veniam norud exotation ullamco laboris nialiquid exea commodi consat.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="media">
+                                                <a class="pull-left" href="#">
+                                                    <img class="media-object" src="example/top-face6.jpg" alt="">
+                                                </a>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Media heading</h4>
+                                                    <p>
+                                                        Ut enim minim veniam norud exotation ullamco laboris nialiquid exea commodi consat.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- eof carousel -->
+                            </div>
+                        </div>
+                    </div> <!-- #2 -->
+                </div> <!-- .tab-content -->
+            </div> <!-- .col-sm-12 -->
+        </div> <!-- .row -->
+    </div> <!-- .container -->
+</section><!-- #slide_tabs -->

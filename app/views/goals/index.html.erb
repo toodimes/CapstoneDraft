@@ -1,0 +1,5 @@
+<h1>The Goals page for <%= current_user.user_profile.name %></h1>
+<% @goals.each do |goal| %>
+  <p>Title: <%= goal.name %> || <a href="/goals/<%= goal.id %>/edit">Edit Goal</a></p>
+  <p>Goal: <%= goal.goal %></p>
+<% end %>

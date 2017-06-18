@@ -1,0 +1,80 @@
+<section class="darkgrey_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h2 class="block-header"><strong>Trainer</strong></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="classes media light_section">
+          <a href="#" class="pull-left">
+            <%= image_tag "#{@user.user.avatars.last.url}", class: "media-object" %>
+            <!-- <img src="" alt="image01" class="media-object"> -->
+          </a>
+          <div class="media-body">
+            <h3><a href="class-single.html"><%= @user.name %></a></h3>
+            <div class="classes-description">
+              <p><%= @user.experience %></p>
+              <p><%= @user.qualifications %></p>
+              <!-- STILL NEED TO CODE BELOW PARTS -->
+              <p class="with-icon date">February 12, 2014</p>
+              <p class="with-icon time">11:30 - 13:30</p>
+              <p class="with-icon person"><a href="#"><%= @user.name %></a></p>
+              <% if current_user && current_user.trainer_profile && current_user.trainer_profile.id == @user.id %>
+                <a href="/trainer_profiles/<%= @user.id %>/edit"><p>Edit Your Profile</p></a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- QUOTE SLIDER -->
+<section id="events" class="color_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <div id="carousel-testimonials" class="carousel dxcarousel slide widget_testimonials block">
+          <a class="carousel-control left" href="#carousel-testimonials" data-slide="prev"></a>
+          <a class="carousel-control right" href="#carousel-testimonials" data-slide="next"></a>
+          <div class="carousel-inner">
+            <div class="item active">
+              <p class="carousel-introtext">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, eum adipisci asperiores animi eos sint modi amet omnis fugiat cum.
+              </p>
+              <p class="carousel-readmore">
+                  John Doe
+              </p>
+            </div>
+            <div class="item">
+              <p class="carousel-introtext">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, eum adipisci asperiores animi eos sint modi amet omnis fugiat cum.
+              </p>
+              <p class="carousel-readmore">
+                  Catrin Jhonson
+              </p>
+            </div>
+            <div class="item">
+              <p class="carousel-introtext">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, eum adipisci asperiores animi eos sint modi amet omnis fugiat cum.
+              </p>
+              <p class="carousel-readmore">
+                  Nataly Smith
+              </p>
+            </div>
+            <div class="item">
+              <p class="carousel-introtext">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, eum adipisci asperiores animi eos sint modi amet omnis fugiat cum.
+              </p>
+              <p class="carousel-readmore">
+                  Antony Gore
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

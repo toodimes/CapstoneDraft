@@ -1,0 +1,91 @@
+<header id="header">
+    <div class="container">
+        <div class="row">
+            <a class="navbar-brand" href="/">
+                No
+                <span class="highlight">Rx</span>
+                cuses
+            </a>
+            <div class="col-sm-12 mainmenu_wrap">
+                <div class="main-menu-icon visible-xs">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="mainmenu" class="menu sf-menu responsive-menu superfish">
+                    <li class="active">
+                        <a href="/">Home</a>
+                     </li>
+                    <li class="dropdown">
+                        <a href="">Blog</a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a href="/">Posts</a>
+                            </li>
+                            <li class="">
+                                <a href="/post/new">New Posts</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="">Timetable</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="./trainers.html">Trainers</a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a href="./trainers.html">Trainers</a>
+                            </li>
+                            <li class="">
+                                <a href="./trainer-single.html">Single Trainer</a>
+                            </li>
+                        </ul>
+                    </li>
+                <% if current_user && current_user.user_profile %>                                        
+                    <li class="dropdown">
+                        <a href="#"><%= current_user.user_profile.name %></a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a href="">My Profile</a>
+                            </li>
+                            <li class="">
+                                <a href="">My Programs</a>
+                            </li>
+                            <li class="">
+                                <a href="/trainer_profiles/<%= current_user.user_profile.trainer_profile.id %>">My Trainer</a>
+                            </li>
+                            <li class="">
+                                <a href="">My Goals</a>
+                            </li>
+                        </ul>
+                    </li>
+                <% elsif current_user && current_user.trainer_profile %>
+                    <li class="dropdown">
+                        <a href="#"><%= current_user.trainer_profile.name %></a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a href="/trainer_profiles/<%= current_user.trainer_profile.id %>">My Profile</a>
+                            </li>
+                            <li class="">
+                                <a href="/user_profiles">My Clients</a>
+                            </li>
+                            <li class="">
+                                <a href="">Approve Trainers</a>
+                            </li>
+                        </ul>
+                    </li>
+                <% end %>
+                    <% if current_user %>
+                        <li>
+                          <%= link_to "Sign Out", "/users/sign_out", method: :delete %>
+                        </li>
+                    <% else %>
+                        <li class="">
+                            <a href="/users/sign_in">Log In</a>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

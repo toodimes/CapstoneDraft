@@ -1,0 +1,5 @@
+<% @users.each do |user| %>
+  <h1><%= user.name %></h1>
+  <a href="/exercises">New Program</a>
+  <a href="/program_preps/<%= user.user.id %>">View programs</a>
+<% end %>

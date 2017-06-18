@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Exercise.all.each do |exercise|
+#   ExerciseImage.create(url: "https://media.giphy.com/media/NPXH9DAWLf5hm/giphy.gif", exercise_id: exercise.id)
+# end
+# puts "Done!"

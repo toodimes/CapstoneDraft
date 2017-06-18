@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  gender: MyString
+  current_weight: 1
+  goal_weight: 1
+
+two:
+  name: MyString
+  gender: MyString
+  current_weight: 1
+  goal_weight: 1

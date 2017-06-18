@@ -1,0 +1,7 @@
+<h1>The edit page for goal: <%= @goal.name %></h1>
+<%= form_tag "/goals/#{@goal.id}", method: :patch do  %>
+  <input type="text" name="name" value="<%= @goal.name %>">
+  <input type="text" name="goal" value="<%= @goal.goal %>">
+  Completed: <input type="checkbox" name="completed">
+  <input type="submit" value="Submit">
+<% end %>

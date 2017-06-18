@@ -1,0 +1,35 @@
+<div class="current_program">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1>Program for </h1>
+    </div>
+    <div class="panel-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Exercise</th>
+            <th>Quantity</th>
+            <th>Change Quantity</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @exercises.each do |exercise| %>
+            <tr>
+              <td><a href="/exercises/<%= exercise.exercise.id %>"><%= exercise.exercise.name %></a></td>
+              <td><%= exercise.quantity %></td>
+              <%= form_tag "/program_preps/#{exercise.id}/edit", method: :patch do %>
+                <td><input style="width: 50px;" type="text" name="quantity" value="<%= exercise.quantity %>"></td>
+                <td><input class="btn btn-info" type="submit" value="Change"></td>
+              <% end %>
+              <td><%= button_to "", "/user_profiles/#{exercise.user.id}/program_preps/#{exercise.id}", method: :patch, class: "glyphicon glyphicon-remove-sign" %>
+                <!-- <a href="/program_preps/<%= exercise.id %>"><span class="glyphicon glyphicon-remove-sign"></span></a> -->
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= button_to "Send Program", "/programs", method: :post, class: "btn btn-lg btn-success pull-right" %>
+    </div>
+  </div>
+</div>
